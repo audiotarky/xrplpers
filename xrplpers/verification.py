@@ -3,6 +3,7 @@ from xrpl.core.keypairs import is_valid_message, derive_classic_address  # type:
 import json
 from collections import namedtuple
 
+
 Signer = namedtuple("Signer", "SigningPubKey,TxnSignature,Account")
 
 
