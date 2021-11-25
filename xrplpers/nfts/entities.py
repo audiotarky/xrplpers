@@ -101,6 +101,9 @@ class TokenID:
         """
         token_bytes = bytes.fromhex(token_hex)
         flags, transfer_fee, issuer, taxon, sequence = cls.struct.unpack(token_bytes)
+        print(taxon)
+        print(taxon.hex())
+        print(int.from_bytes(taxon, byteorder="big"))
         return cls(
             TokenFlags(int.from_bytes(flags, byteorder="big")),
             TransferFee(int.from_bytes(transfer_fee, byteorder="big")),
