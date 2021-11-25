@@ -24,6 +24,14 @@ class testVerification(unittest.TestCase):
         self.assertEqual(t.value, t.max)
         self.assertEqual(t.as_percent(), 50)
 
+    def testFromSpecPercent314(self):
+        t = TransferFee.from_percent(3.14)
+        t.value = 314
+
+    def testFromSpecPercent314(self):
+        t = TransferFee.from_percent(0.01)
+        t.value = 1
+
     def testMustBeInt(self):
         with self.assertRaises(TypeError):
             TransferFee("foo")

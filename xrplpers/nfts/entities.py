@@ -13,6 +13,7 @@ objects and one new ledger structure:
 from dataclasses import dataclass
 from enum import IntFlag
 from struct import Struct
+
 from xrpl.core.binarycodec.types.account_id import AccountID
 
 
@@ -59,13 +60,14 @@ class Taxon:
 
     m = 384160001
     c = 2459
+    n = 200
 
     @classmethod
-    def scramble(cls, value, sequence):
-        return (cls.m * value + cls.c) % sequence
+    def scramble(cls, sequence):
+        return (cls.m * sequence + cls.c) % n
 
 
-class NFToken:
+class TokenID:
     struct = Struct("2s2s20s4s4s")
 
     def __init__(self, flags, transfer_fee, issuer, taxon=None, sequence=None):
@@ -75,35 +77,58 @@ class NFToken:
         self.taxon = taxon
         self.sequence = sequence
 
-    def burn(self):
-        """
-        NFTs can be destroyed by the NFTokenBurn transaction
-        """
-        pass
-
-    def mint(self, data):
-        """
-        NFTs are created using the NFTokenMint transaction
-        """
-        pass
-
     @classmethod
     def from_hex(cls, token_hex):
         """
         Load the token from a hex string
+
+        From the spec:
+
+        This composite field uniquely identifiers a token; it contains:
+
+        a byte is equal to 8 bits
+
+        - a set of 16 bits that identify flags or settings specific to the NFT
+        - 16 bits that encode the transfer fee associated with this token, if
+          any
+        - 160-bit account identifier of the issuer
+        - a 32-bit issuer-specified taxon
+        - an (automatically generated) monotonically increasing 32-bit
+          sequence number.
+
+        The 16-bit flags and transfer fee fields, and the 32-bit taxon and
+        sequence number fields are stored in big-endian format.
         """
         token_bytes = bytes.fromhex(token_hex)
         flags, transfer_fee, issuer, taxon, sequence = cls.struct.unpack(token_bytes)
         return cls(
             TokenFlags(int.from_bytes(flags, byteorder="big")),
             TransferFee(int.from_bytes(transfer_fee, byteorder="big")),
-            AccountID.from_value(issuer.hex()),
+            AccountID.from_value(issuer.hex().upper()),
             int.from_bytes(taxon, byteorder="big"),
             int.from_bytes(sequence, byteorder="big"),
         )
 
     def __str__(self) -> str:
         return f"NFTToken issued by {self.issuer} with a transfer fee of {self.transfer_fee}"
+
+
+class NFTToken:
+    id: TokenID
+    uri: str
+
+    def burn(self):
+        """
+        NFTs can be destroyed by the NFTokenBurn transaction
+        """
+        pass
+
+    @classmethod
+    def mint(self, data):
+        """
+        NFTs are created using the NFTokenMint transaction
+        """
+        pass
 
 
 class NFTokenOffer:
