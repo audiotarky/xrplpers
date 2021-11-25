@@ -13,6 +13,7 @@ objects and one new ledger structure:
 from dataclasses import dataclass
 from enum import IntFlag
 from struct import Struct
+from xrpl.core.binarycodec.types.account_id import AccountID
 
 
 class TokenFlags(IntFlag):
@@ -96,7 +97,7 @@ class NFToken:
         return cls(
             TokenFlags(int.from_bytes(flags, byteorder="big")),
             TransferFee(int.from_bytes(transfer_fee, byteorder="big")),
-            issuer.hex(),
+            AccountID.from_value(issuer.hex()),
             int.from_bytes(taxon, byteorder="big"),
             int.from_bytes(sequence, byteorder="big"),
         )
