@@ -9,7 +9,7 @@ class testVerification(unittest.TestCase):
 
     def testUpperBound(self):
         with self.assertRaises(ValueError):
-            TransferFee(5001)
+            TransferFee(50001)
 
     def testLowerBoundFromPercent(self):
         with self.assertRaises(ValueError):
