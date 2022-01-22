@@ -191,6 +191,13 @@ def _flatten_nft_node(node):
     return [x["NonFungibleToken"]["TokenID"] for x in node]
 
 
+class BadTransactionError(Exception):
+    def __init__(self, transaction=None, *args, **kwargs):
+        # Call the base class constructor with the parameters it needs
+        super().__init__(args, kwargs)
+        self.transaction = transaction
+
+
 class NFToken:
     id: TokenID
     uri: str
@@ -219,9 +226,9 @@ class NFToken:
         Create a representation of an NFToken from an NFTokenMint transaction
         """
         if txn["TransactionType"] != "NFTokenMint":
-            raise ValueError("Transaction is not an NFTokenMint")
+            raise BadTransactionError("Transaction is not an NFTokenMint", txn)
         if txn["meta"]["TransactionResult"] != "tesSUCCESS":
-            raise ValueError("Transaction was not successful")
+            raise BadTransactionError("Transaction was not successful", txn)
         nft_id = ""
         for n in txn["meta"]["AffectedNodes"]:
             v = list(n.values())[0]
