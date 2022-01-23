@@ -15,7 +15,17 @@ from enum import IntFlag
 from struct import Struct, pack
 import typing
 from xrpl.core.binarycodec.types.account_id import AccountID
+from xrpl.models.transactions import (
+    Memo,
+    NFTokenMint,
+)
+from xrpl.transaction import (
+    send_reliable_submission,
+    safe_sign_and_autofill_transaction,
+    safe_sign_and_submit_transaction,
+)
 from xrpl.utils import str_to_hex, hex_to_str
+import json
 
 
 class TokenFlags(IntFlag):
@@ -180,7 +190,7 @@ class TokenID:
         return s.hex().upper()
 
     def __str__(self) -> str:
-        return f"NFTToken issued by {self.issuer} with a transfer fee of {self.transfer_fee}"
+        return f"NFToken issued by {self.issuer} with a transfer fee of {self.transfer_fee}"
 
     @property
     def issuer_as_string(self):
@@ -199,9 +209,6 @@ class BadTransactionError(Exception):
 
 
 class NFToken:
-    id: TokenID
-    uri: str
-
     def __init__(self, id: TokenID, uri: str, txn=None) -> None:
         self.id = id
         self.uri = uri
@@ -214,11 +221,33 @@ class NFToken:
         pass
 
     @classmethod
-    def mint(cls, data):
+    def mint(cls, minter, url, client, creator=None, message="", fee=0):
         """
         NFTs are created using the NFTokenMint transaction
         """
-        pass
+
+        kwargs = {
+            "account": minter.classic_address,
+            "flags": 8,
+            "uri": str_to_hex(url),
+            "transfer_fee": fee,
+            "token_taxon": 0,
+        }
+        if creator and minter.classic_address != creator.classic_address:
+            kwargs["issuer"] = creator.classic_address
+
+        if message:
+            memo = Memo.from_dict({"memo_data": str_to_hex(message)})
+            memo.validate()
+            kwargs["memos"] = [memo]
+
+        nft = NFTokenMint(**kwargs)
+        nft.validate()
+        tx_signed = safe_sign_and_autofill_transaction(nft, minter, client)
+        nft_tx = send_reliable_submission(tx_signed, client)
+
+        token = NFToken.from_transaction(nft_tx.result)
+        return token
 
     @classmethod
     def from_transaction(cls, txn):
@@ -230,19 +259,117 @@ class NFToken:
         if txn["meta"]["TransactionResult"] != "tesSUCCESS":
             raise BadTransactionError("Transaction was not successful", txn)
         nft_id = ""
+        before = set()
+        after = set()
         for n in txn["meta"]["AffectedNodes"]:
             v = list(n.values())[0]
             if v["LedgerEntryType"] == "NFTokenPage":
-                before = set(
-                    _flatten_nft_node(v["PreviousFields"]["NonFungibleTokens"])
-                )
-                after = set(_flatten_nft_node(v["FinalFields"]["NonFungibleTokens"]))
-                nft_id = (before ^ after).pop()
-                return cls(
-                    TokenID.from_hex(nft_id),
-                    hex_to_str(txn["URI"]),
-                    txn["hash"],
-                )
+                try:
+                    if "PreviousFields" in v:
+                        before = (
+                            set(
+                                _flatten_nft_node(
+                                    v["PreviousFields"]["NonFungibleTokens"]
+                                )
+                            )
+                            | before
+                        )
+                    if "FinalFields" in v:
+                        after = (
+                            set(
+                                _flatten_nft_node(v["FinalFields"]["NonFungibleTokens"])
+                            )
+                            | after
+                        )
+                except:
+                    raise BadTransactionError(
+                        "Could not parse expected transaction fields", transaction=txn
+                    )
+        nft_id = (after - before).pop()
+        return cls(
+            TokenID.from_hex(nft_id),
+            hex_to_str(txn["URI"]),
+            txn["hash"],
+        )
+
+
+class NFTokenListHelper:
+    """
+    Helper class that can hold a list of NFTs in various states;
+    - to be minted
+    - owned by an account
+    - found in a transaction node
+    - printable/serialised to human formats
+    """
+
+    def __init__(self, list=[], transaction={}) -> None:
+        self._nfts = set()
+        self.add_from_list(list)
+        if transaction:
+            self.add_from_transaction(transaction)
+
+    def __add__(self, nft):
+        # https://www.tutorialsteacher.com/python/magic-methods-in-python
+        self._nfts.add(tuple(nft.items()))
+
+    def __sub__(self, nft):
+        self._nfts.discard(tuple(nft.items()))
+
+    def add(self, nft):
+        self + nft
+
+    def __len__(self):
+        return len(self._nfts)
+
+    def __str__(self):
+        return json.dumps([dict(i) for i in self._nfts])
+
+    def add_from_list(self, list):
+        """
+        Create NFToken objects for a series of {TokenID, URI} dicts and to the NFTokenListHelper.
+        """
+        self._nfts |= set(list)
+
+    def add_from_transaction(self, txn):
+        """
+        Given a transaction, find any NFT added to the wallet, add it to the
+        NFTokenListHelper and return the NFTs that have been added in the
+        transaction, and that are new to the listto the list.
+        """
+        before = set()
+        after = set()
+
+        for n in txn["meta"]["AffectedNodes"]:
+            # Cast the dict values view to a list so we can easily get the single entry
+            v = list(n.values())[0]
+            if v["LedgerEntryType"] == "NFTokenPage":
+                try:
+                    if "PreviousFields" in v:
+                        before = (
+                            set(
+                                _flatten_nft_node(
+                                    v["PreviousFields"]["NonFungibleTokens"]
+                                )
+                            )
+                            | before
+                        )
+                    if "FinalFields" in v:
+                        after = (
+                            set(
+                                _flatten_nft_node(v["FinalFields"]["NonFungibleTokens"])
+                            )
+                            | after
+                        )
+                except:
+                    raise BadTransactionError(
+                        "Could not parse expected transaction fields", transaction=txn
+                    )
+
+        new_nft_in_txn = NFTokenListHelper(after - before)
+        new_to_list = NFTokenListHelper((before | after) - self._nfts)
+
+        self.add_from_list(before | after)
+        return new_nft_in_txn, new_to_list
 
 
 class NFTokenOffer:
