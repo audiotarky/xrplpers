@@ -3,7 +3,13 @@ from pathlib import Path
 import json
 import requests
 from xrplpers.verification import TransactionVerifier
-from functools import cache
+import sys
+
+py_version = sys.version_info
+if py_version.major == 3 and py_version.minor >= 9:
+    from functools import cache
+else:
+    from functools import lru_cache as cache
 from os import environ
 
 
