@@ -25,13 +25,10 @@ def get_creds(path: Path = None):
 
 
 def verify_signature(payload):
-
     uuid = payload["payloadResponse"]["payload_uuidv4"]
     url = f"https://xumm.app/api/v1/platform/payload/{uuid}"
-    headers = {"Accept": "application/json", "authorization": "Bearer"}
-    headers.update(get_creds())
-    response = requests.request("GET", url, headers=headers)
-    tx_data = response.json()
+    response = call_xumm_api(url)
+    tx_data = response
     verifier = TransactionVerifier(tx_data["response"]["hex"])
     if not verifier.is_valid():
         return False
@@ -48,24 +45,27 @@ def xumm_login(user=None):
     if user:
         xumm_payload["user_token"] = user
     response = submit_xumm_transaction({"TransactionType": "SignIn"}, **xumm_payload)
-    return response.json()
+    return response
 
 
 def submit_xumm_transaction(transaction, **kwargs):
     url = "https://xumm.app/api/v1/platform/payload"
-    headers = {"Accept": "application/json", "authorization": "Bearer"}
-    headers.update(get_creds())
     xumm_payload = kwargs
     xumm_payload["txjson"] = transaction
-
-    response = requests.request("POST", url, headers=headers, json=xumm_payload)
-    response.raise_for_status()
-    return response
+    return call_xumm_api(url, payload=xumm_payload, method="POST")
 
 
 def get_xumm_transaction(uuid):
     url = f"https://xumm.app/api/v1/platform/payload/{uuid}"
+    return call_xumm_api(url)
+
+
+def call_xumm_api(url, payload=None, method="GET"):
     headers = {"Accept": "application/json", "authorization": "Bearer"}
     headers.update(get_creds())
-    response = requests.get(url, headers=headers)
+    if payload:
+        response = requests.request(method, url, headers=headers, json=payload)
+    else:
+        response = requests.request(method, url, headers=headers)
+    response.raise_for_status()
     return response.json()
