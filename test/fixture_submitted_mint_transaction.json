@@ -1,0 +1,431 @@
+{
+    "Account": "rawtybaJBgwuUcaNv28Q4YnvqQj1mowz41",
+    "Fee": "10",
+    "Flags": 8,
+    "Issuer": "rJhSM8539zfoQwq7NomvEvt9xSbppf38Ng",
+    "LastLedgerSequence": 221783,
+    "Memos": [
+        {
+            "Memo": {
+                "MemoData": "4D696E74656420627920417564696F7461726B7920617420323032322D30312D32322031313A33343A33332E303038393334"
+            }
+        }
+    ],
+    "Sequence": 177378,
+    "SigningPubKey": "03FE3207F849C5C0BC16E3479BBD0A8B8B2F0482A5AA62A5ECCAD062AEC43FDD9C",
+    "TokenTaxon": 0,
+    "TransactionType": "NFTokenMint",
+    "TransferFee": 25000,
+    "TxnSignature": "30450221009B6D251C737D035F55CD1772F94D00D86C33FC06D4312E9C2EEF69B0EE5993B702207B6EE268CB7E8BE36B088119FEEF38CAC29F87FF7CE9650C53B36BCD231A74C3",
+    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368",
+    "date": 696166480,
+    "hash": "696FA54E72F64F2C71E51FB66BC7BA26C28780692EF7091F879A44807EA1DDA6",
+    "inLedger": 221765,
+    "ledger_index": 221765,
+    "meta": {
+        "AffectedNodes": [
+            {
+                "ModifiedNode": {
+                    "FinalFields": {
+                        "Flags": 0,
+                        "NextPageMin": "38B7C279540C59F11C89177DCD6FAC17B7245C6BFFFFFFFFFFFFFFFFFFFFFFFF",
+                        "NonFungibleTokens": [
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF280245C1D300000038",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF280665C6C80000002D",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF280EA5D0B200000017",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2812C5D5A70000000C",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28150B8DDF00000044",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2816E5DA9C00000001",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28192B92D400000039",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF281D4B97C90000002E",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28216B9CBE00000023",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28258BA1B300000018",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF282DCBAB9D00000002",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28301163D50000003A",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28343168CA0000002F",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2838516DBF00000024",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2844B17C9E00000003",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2846F734D60000003B",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF284B1739CB00000030",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF284F373EC000000025",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28535743B50000001A",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28577748AA0000000F",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF285B974D9F00000004",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF285DDD05D70000003C",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2861FD0ACC00000031",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28661D0FC100000026",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF286E5D19AB00000010",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28727D1EA000000005",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2874C2D6D80000003D",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2878E2DBCD00000032",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF287D02E0C200000027",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            }
+                        ]
+                    },
+                    "LedgerEntryType": "NFTokenPage",
+                    "LedgerIndex": "38B7C279540C59F11C89177DCD6FAC17B7245C6BA4C0AF288122E5B70000001C",
+                    "PreviousFields": {
+                        "NonFungibleTokens": [
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF280245C1D300000038",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF280665C6C80000002D",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF280EA5D0B200000017",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2812C5D5A70000000C",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2816E5DA9C00000001",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28192B92D400000039",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF281D4B97C90000002E",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28216B9CBE00000023",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28258BA1B300000018",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF282DCBAB9D00000002",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28301163D50000003A",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28343168CA0000002F",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2838516DBF00000024",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2844B17C9E00000003",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2846F734D60000003B",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF284B1739CB00000030",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF284F373EC000000025",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28535743B50000001A",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28577748AA0000000F",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF285B974D9F00000004",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF285DDD05D70000003C",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2861FD0ACC00000031",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28661D0FC100000026",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF286E5D19AB00000010",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF28727D1EA000000005",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2874C2D6D80000003D",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF2878E2DBCD00000032",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            },
+                            {
+                                "NonFungibleToken": {
+                                    "TokenID": "000861A8BB208DE9CB0384F2D46901203CA958EEA4C0AF287D02E0C200000027",
+                                    "URI": "68747470733A2F2F6E66742E617564696F7461726B792E636F6D2F615F6C6F6E675F68617368"
+                                }
+                            }
+                        ]
+                    },
+                    "PreviousTxnID": "DD3F62BE258C422E9D5F95076D24F0E0E36CF87E8ADE8564786E3CD9540C5BC7",
+                    "PreviousTxnLgrSeq": 205135
+                }
+            },
+            {
+                "ModifiedNode": {
+                    "FinalFields": {
+                        "Account": "rJhSM8539zfoQwq7NomvEvt9xSbppf38Ng",
+                        "Balance": "11445254826",
+                        "Flags": 0,
+                        "MintedTokens": 69,
+                        "Minter": "rawtybaJBgwuUcaNv28Q4YnvqQj1mowz41",
+                        "OwnerCount": 3,
+                        "Sequence": 177324
+                    },
+                    "LedgerEntryType": "AccountRoot",
+                    "LedgerIndex": "C95C3788BE169D48D6785F46B2E58CB7672DFE194F4D141CC6CD6DD75567F4F5",
+                    "PreviousFields": {
+                        "MintedTokens": 68
+                    },
+                    "PreviousTxnID": "951DED7ECEA16A6EAF3D148CCB9720B61168D99C4E141DAAFAAD1C60947194C7",
+                    "PreviousTxnLgrSeq": 221733
+                }
+            },
+            {
+                "ModifiedNode": {
+                    "FinalFields": {
+                        "Account": "rawtybaJBgwuUcaNv28Q4YnvqQj1mowz41",
+                        "Balance": "10638264004",
+                        "Flags": 0,
+                        "OwnerCount": 4,
+                        "Sequence": 177379
+                    },
+                    "LedgerEntryType": "AccountRoot",
+                    "LedgerIndex": "D2FDC5365B63C62E83B933CE0889C8BDCFEBC928ED788576308C99C7E0578B1C",
+                    "PreviousFields": {
+                        "Balance": "10638264014",
+                        "Sequence": 177378
+                    },
+                    "PreviousTxnID": "951DED7ECEA16A6EAF3D148CCB9720B61168D99C4E141DAAFAAD1C60947194C7",
+                    "PreviousTxnLgrSeq": 221733
+                }
+            }
+        ],
+        "TransactionIndex": 0,
+        "TransactionResult": "tesSUCCESS"
+    },
+    "validated": true
+}
