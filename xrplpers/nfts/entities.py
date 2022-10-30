@@ -196,6 +196,15 @@ class TokenID:
     def issuer_as_string(self):
         return self.issuer.to_json()
 
+    @property
+    def as_dict(self):
+        return {
+            flags: self.flags,
+            transfer_fee:  self.transfer_fee,
+            issuer: self.issuer,
+            taxon: self.taxon,
+            sequence: self.sequence
+        }
 
 def _flatten_nft_node(node):
     return [x["NonFungibleToken"]["TokenID"] for x in node]
